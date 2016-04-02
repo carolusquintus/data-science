@@ -1,7 +1,7 @@
 sysname <- Sys.info()["sysname"]
 
 if (identical(sysname, "Windows"))
-	paste0(Sys.getenv("USERPROFILE"), "/Desarrollo/Coursera/Data Science/R programming/week2")
+	paste0(Sys.getenv("USERPROFILE"), "/Desarrollo/Coursera/data-science/R programming/week2")
 
 pollutantmean <- function(directory, pollutant = "sulfate", id = 1:332) {
 	## 'directory' is a character vector of length 1 indicating
@@ -36,10 +36,10 @@ pollutantmean <- function(directory, pollutant = "sulfate", id = 1:332) {
 		data <- read.csv(paste(directory, csvFile, sep = "/"))
 
 		# Option 1
-		#dataPollutant <- data[!is.na(data[, pollutant]), pollutant]
-		dataPollutant <- na.omit(data[, pollutant])
+		dataPollutant <- data[!is.na(data[, pollutant]), pollutant]
+		#dataPollutant <- na.omit(data[, pollutant])
 		# Option 2 with NA
-		dataPollutant <- data[[pollutant]]
+		#dataPollutant <- data[[pollutant]]
 
 		totalPollutant <- c(totalPollutant, dataPollutant)
 	}
@@ -47,7 +47,7 @@ pollutantmean <- function(directory, pollutant = "sulfate", id = 1:332) {
 	# Option 1
 	mean(totalPollutant)
 	# Option 2
-	mean(totalPollutant, na.rm = TRUE)
+	#mean(totalPollutant, na.rm = TRUE)
 }
 
 print(pollutantmean("specdata", "sulfate", 1:10))
