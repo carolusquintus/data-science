@@ -1,7 +1,7 @@
 sysname <- Sys.info()["sysname"]
+env <- if (sysname == "Windows") Sys.getenv("USERPROFILE") else Sys.getenv("HOME")
 
-if (identical(sysname, "Windows"))
-	paste0(Sys.getenv("USERPROFILE"), "/Desarrollo/Coursera/data-science/R programming/week2")
+setwd(paste0(env, "/Desarrollo/Coursera/data-science/R programming/week2"))
 
 pollutantmean <- function(directory, pollutant = "sulfate", id = 1:332) {
 	## 'directory' is a character vector of length 1 indicating
