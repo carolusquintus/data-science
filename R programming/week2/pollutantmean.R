@@ -45,7 +45,7 @@ pollutantmean <- function(directory, pollutant = "sulfate", id = 1:332) {
 	}
 
 	# Option 1
-	mean(totalPollutant)
+	round(mean(totalPollutant), 3)
 	# Option 2
 	#mean(totalPollutant, na.rm = TRUE)
 }
